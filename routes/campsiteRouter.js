@@ -217,6 +217,7 @@ campsiteRouter.route('/:campsiteId/comments/:commentId')
                 .catch(err => next(err));
             } else {
             err.status = 403;
+            err = new Error('User is not authorized to this.');
             return next(err);
             }
         } else if (!campsite) {
